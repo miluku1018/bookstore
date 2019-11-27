@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root 'books#index'
-    resources :books
+    resources :books, :publishers
   end
+
 end
