@@ -1,8 +1,11 @@
 class Admin::PublishersController < ApplicationController
-  before_action :find_publisher, only: [:edit, :update, :show, :destroy]
+  before_action :authenticate_user!
+  before_action :find_publisher, only: [:edit, :update, :destroy]
+
+  layout 'backend'
 
   def index
-    @publishers = Publisher.all
+    @publishers = Publisher.available
   end
 
   def new
@@ -25,25 +28,22 @@ class Admin::PublishersController < ApplicationController
 
   def update
     if @publisher.update(publisher_params)
-      redirect_to admin_publishers_path, notice: "更新成功"
+      redirect_to edit_admin_publisher_path(@publisher), notice: "更新成功"
     else
      render :edit
     end
   end
   
   def destroy
-    @publisher.destroy if @publisher
+    @publisher.destroy
     redirect_to admin_publishers_path, notice: "刪除成功"
-  end
-
-  def show
-
   end
 
   private
   def find_publisher
     @publisher = Publisher.find(params[:id])
   end
+  
 
   def publisher_params 
     params.require(:publisher).permit(:name, :tel, :address, :note, :online)

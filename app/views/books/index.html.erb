@@ -29,8 +29,8 @@
      <h1 class="title"><i class="fab fa-500px"></i>書本列表</h1>
       <div class="columns">
         <% @books.each do |book| %>
-          <div class="column">
-            <div class="card">
+          <div class="column is-3">
+            <div class="card" style="height: 100%;">
                   <div class="card-image">
                     <figure class="image">
                     <%= cover_image_tag book, width: 300, dummy_img: true %>

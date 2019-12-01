@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'books#index'
     resources :books, :publishers
+    resources :publishers, except: [:show]
   end
 
 end

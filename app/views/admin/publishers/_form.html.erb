@@ -8,33 +8,34 @@
 
 <%= form_for([:admin, publisher]) do |f|%>
 
-  <div class="column is-8">
-    <div class="field">
-      <%= f.label :name, "出版社名稱", class: 'label' %>
-      <%= f.text_field :name, class: 'input' %>
+  <div class="columns">
+    <div class="column is-3">
+      <div class="field">
+        <%= f.label :name, "出版社名稱", class: 'label' %>
+        <%= f.text_field :name, class: 'input' %>
+      </div>
+    </div>
+    
+    <div class="column is-3">
+      <div class="field">
+        <%= f.label :tel, "電話", class: 'label' %>
+        <%= f.text_field :tel, class: 'input' %>
+      </div>
+    </div>
+    
+    <div class="column is-6">
+      <div class="field">
+        <%= f.label :address, "地址", class: 'label' %>
+        <%= f.text_area :address, class: 'input' %>
+      </div>
     </div>
   </div>
   
-  <div class="column is-8">
-    <div class="field">
-      <%= f.label :tel, "電話", class: 'label' %>
-      <%= f.text_field :tel, class: 'input' %>
-    </div>
-  </div>
-  
-  <div class="column is-8">
-    <div class="field">
-      <%= f.label :address, "地址", class: 'label' %>
-      <%= f.text_area :address, class: 'input' %>
-    </div>
-  </div>
-  
-  <div class="column is-8">
     <div class="field">
       <%= f.label :note, "備註", class: 'label' %>
       <%= f.text_area :note, class: 'input' %>
     </div>
-  </div>
+
 
 <div class="field">
   <%= f.check_box :online %>
